@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[numbers]{natbib}
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage{lipsum}
+\usepackage[legalpaper, portrait, margin=1.2in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage[autostyle]{csquotes}
+\usepackage[shortlabels]{enumitem}
+\usepackage{verbatim}
+\usepackage{subfiles}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{xcolor}
+\usepackage{sudoku}
+\renewcommand*\sudokuformat[1]{\sffamily#1}
+\setlength\sudokusize{5cm}
+
+\makeatletter
+\newcommand*\@shidoku@grid{
+  \linethickness{\sudokuthinline}%
+  \multiput(0,0)(1,0){5}{\line(0,1){4}}%
+  \multiput(0,0)(0,1){5}{\line(1,0){4}}
+  \linethickness{\sudokuthickline}%
+  \multiput(0,0)(2,0){2}{\line(0,1){4}}%
+  \multiput(0,0)(0,2){2}{\line(1,0){4}}
+  \linethickness{0.5\sudokuthickline}%
+  \put(0,0){\framebox(0,0){}}%
+  \put(4,0){\framebox(0,0){}}%
+  \put(0,4){\framebox(4,0){}}%
+  \put(4,0){\framebox(0,4){}}
+}
+\newenvironment{shidoku-block}{%
+        \catcode`\|=\active
+        \@sudoku@activate
+        \setcounter{@sudoku@col}{-1}%
+        \setcounter{@sudoku@row}{3}%
+        \setlength\unitlength{.111111\sudokusize}%
+        \begin{picture}(4,4)%
+        \@shidoku@grid\@shidoku@grab@arguments
+        }{\end{picture}}
+
+\def\@shidoku@grab@arguments#1.#2.#3.#4.{\scantokens{#1.#2.#3.#4.}}
+\newenvironment{shidoku}{%
+        \begin{center}%
+        \begin{shidoku-block}}{\end{shidoku-block}\end{center}}
+\makeatother
+
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Algebraic Varieties ASC Report}}
+\fancyhead[R]{\slshape Yangda Bei}
+\fancyfoot[CO,C]{\thepage}
+\fancyfoot[RO,R]{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\headheight}{13.59999pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{definition}[2][Definition]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{problem}[2][Problem]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{question}[2][Question]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newcommand{\lr}[3]{\!\left#1 #3 \right#2}
+
+\newcommand{\p}{\varphi}
+\newcommand{\s}{\sigma}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \vspace*{1cm}
+     
+            \textbf{Graph Colouring and Sudoku}
+     
+            \vspace{0.5cm}
+             Applications of Gr\"obner Bases
+                 
+            \vspace{1.5cm}
+     
+            \textbf{Yangda Bei}
+                 
+            A report presented for \\
+            Advanced Studies Course SNCN3101
+                 
+            \vspace{0.8cm}
+
+                 
+            ANU Mathematical Sciences Institute\\
+            The Australian National University\\
+            Country\\
+            Date
+                 
+        \end{center}
+    \end{titlepage}
+
+    \begin{abstract}
+        \centering
+        The Hilbert Basis Theorem states that ideals in a polynomial ring over a Noetherian ring {\color{red} noetherian???} has a finite generating set. This allows us to use a terminating algorithm to find a unique set of finite elements that generate a polynomial ideal, namely, a reduced Gr\"obner basis. Using Gr\"obner bases to describe a system is very powerful and has wide applications in the field of algebraic geometry. We present methods that use Gr\"obner bases to solve the graph colouring problem as well as Sudoku and its variants.
+    \end{abstract}
+    
+
+    \tableofcontents
+    \pagebreak
+    
+    \section{Introduction}
+
+    \subfile{sections/introduction}
+
+    \section{Gr\"obner Bases}
+
+    \subfile{sections/groebnerbasis}
+
+
+
+    \section{Graph Colouring}
+    
+    \subfile{sections/graphcolouring}
+
+        
+        
+    \section{Sudoku}
+
+    \subfile{sections/sudoku}
+        
+        
+
+    \section{Origami}
+
+    \appendix
+    \subfile{sections/appendix}
+
+    \bibliographystyle{plainnat}
+    \bibliography{bibliography}
+    
+
+\end{document}

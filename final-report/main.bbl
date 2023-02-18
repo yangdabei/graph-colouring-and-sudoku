@@ -1,0 +1,48 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bartlett et~al.(2008)Bartlett, Chartier, Langville, and
+  Rankin]{bartlett2008integer}
+Andrew Bartlett, Timothy~P Chartier, Amy~N Langville, and Timothy~D Rankin.
+\newblock An integer programming model for the sudoku problem.
+\newblock \emph{Journal of Online Mathematics and its Applications}, 8\penalty0
+  (1), 2008.
+
+\bibitem[Bernasconi et~al.(1997)Bernasconi, Codenotti, Crespi, and
+  Resta]{bernasconi1997computing}
+Anna Bernasconi, Bruno Codenotti, Valentino Crespi, and Giovanni Resta.
+\newblock Computing groebner bases in the boolean setting with applications to
+  counting.
+\newblock In \emph{WAE}, pages 209--218, 1997.
+
+\bibitem[Haythorpe(2016)]{haythorpe2016reducing}
+Michael Haythorpe.
+\newblock Reducing the generalised sudoku problem to the hamiltonian cycle
+  problem.
+\newblock \emph{AKCE International Journal of Graphs and Combinatorics},
+  13\penalty0 (3):\penalty0 272--282, 2016.
+
+\bibitem[Ist et~al.(2006)Ist, Lynce, and Ouaknine]{ist2006sudoku}
+Ines~Lynce Ist, In{\^e}s Lynce, and Jo{\"e}l Ouaknine.
+\newblock Sudoku as a sat problem.
+\newblock In \emph{Proceedings of the International Symposium on Artificial
+  Intelligence and Mathematics (AIMATH)}, pages 1--9, 2006.
+
+\bibitem[Sato et~al.(2008)Sato, Nagai, and Inoue]{sato2008computation}
+Yosuke Sato, Akira Nagai, and Shutaro Inoue.
+\newblock On the computation of elimination ideals of boolean polynomial rings.
+\newblock In \emph{Computer Mathematics: 8th Asian Symposium, ASCM 2007,
+  Singapore, December 15-17, 2007. Revised and Invited Papers}, pages 334--348.
+  Springer, 2008.
+
+\bibitem[Simonis(2005)]{simonis2005sudoku}
+Helmut Simonis.
+\newblock Sudoku as a constraint problem.
+\newblock In \emph{CP Workshop on modeling and reformulating Constraint
+  Satisfaction Problems}, volume~12, pages 13--27. Citeseer, 2005.
+
+\end{thebibliography}

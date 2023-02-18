@@ -1,0 +1,165 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}    
+    
+    In this section, we will explain how the solutions of a Sudoku puzzle can be represented as the points in the vanishing locus of a polynomial in 81 variables. The unique solution of a well-posed Sudoku puzzle can be read off from the reduced Gr\"obner basis of that ideal. We can formulate the algebraic approach to solving a Sudoku puzzle as a graph colouring problem where the aim is to construct a 9-colouring of a particular graph given a partial solution. It is worth noting that since we can regard solving a Sudoku as a graph problem, graph theoretical methods are much more efficient at solving a Sudoku puzzle than using Gr\"obner bases. The general problem of solving a Sudoku puzzle on an $n^2\times n^2$ grid with $n\times n$ blocks is NP-complete and has been subsequently converted to various other NP-complete problems such as constraint satisfaction \citep{simonis2005sudoku}, integer programming \citep{bartlett2008integer}, boolean satifiability \citep{ist2006sudoku}, and the Hamiltonian cycle problem \citep{haythorpe2016reducing}.
+
+    A \emph{Sudoku board} is a particular example of a Latin square. A \emph{Latin square} of order $n$ is an $n\times n$ square grid filled with $n$ distinct symbols such that no symbol appears more than once in each row and column. Typically, Sudoku boards are $9\times 9$ Latin squares filled with the integers 1 to 9 with the additional constraint that the numbers appears only once in each of the nine distinguished $3\times 3$ blocks. We say that a \emph{Sudoku puzzle} is a partial solution to a Sudoku board. A \emph{well-posed} Sudoku puzzle is one that uniquely determines the rest of the board. We take Sudoku puzzle to mean well-posed Sudoku puzzle in the remainder of the report. Figure \ref{board} is an example of a Sudoku puzzle and its corresponding Sudoku board.
+
+    minimum number of clues needed to solve is 17 but not mathematically proven
+
+
+    \begin{figure}[h!]
+        \centering
+        \begin{sudoku-block}
+            | | | | | | | | |9|.
+            |9|4| | | | |8|3| |.
+            | | | |9| | |6| |2|.
+            | |1| |7| | | |9| |.
+            | | | | | |2| |5| |.
+            | | |7| | |6| | | |.
+            | | | | | |1| | | |.
+            |5|8|1| |2| | | | |.
+            | |6| | | |8|4| | |.
+        \end{sudoku-block}
+        \hspace*{10pt}
+        \begin{sudoku-block}
+            |7|2|8|6|1|3|5|4|9|.
+            |9|4|6|2|5|7|8|3|1|.
+            |1|3|5|9|8|4|6|7|2|.
+            |8|1|2|7|4|5|3|9|6|.
+            |6|9|4|8|3|2|1|5|7|.
+            |3|5|7|1|9|6|2|8|4|.
+            |4|7|3|5|6|1|9|2|8|.
+            |5|8|1|4|2|9|7|6|3|.
+            |2|6|9|3|7|8|4|1|5|.
+        \end{sudoku-block}
+        \caption{Well-posed Sudoku puzzle and board}
+        \label{board}
+    \end{figure}
+
+        We can formulate a Sudoku puzzle as a graph where the vertices are coloured with the numbers in the 81 squares. This gives us a graph with 81 nodes. From here on, \emph{nodes} \emph{variables}, and \emph{cells} will be used interchangeably as they are equivalent unless otherwise stated. There is an edge between two vertices if the corresponding squares are 
+        \begin{itemize}
+                \item in the same row,
+                \item in the same column, and 
+                \item in the same $3\times 3$ block.            
+            \end{itemize}
+            Hence, the degree of each node is $6+6+8=20$. By Theorem \ref{thm:degreesum}, a typical Sudoku graph has $810\times 2=810$ edges. {\color{red} PROVE THAT STARTING POSITION NEEDS ALL NUMBERS}
+
+            Because of the high number of variables that naturally arise from such a large graph, we investigate and apply techniques to solve a smaller variant of Sudoku.
+
+            
+            
+
+            \subsection{Shidoku}
+
+            A \emph{Shidoku board} is a $4\times 4$ Latin square that whose regions (rows, columns, and designated $2\times 2$ blocks), and similarly, a \emph{well-posed Shidoku puzzle} is a partial solution to a Shidoku board that uniquely determines the board.
+
+            \begin{figure}[h!]
+                \label{fig:shidoku}
+                \centering
+                \begin{shidoku-block}
+                    |3| | | |.
+                    | |2| |4|.
+                    | |1| | |.
+                    | | |4| |.
+                \end{shidoku-block}
+                \hspace*{10pt}
+                \begin{shidoku-block}
+                    |3|4|1|2|.
+                    |1|2|3|4|.
+                    |4|1|2|3|.
+                    |2|3|4|1|.
+                \end{shidoku-block}
+                \caption{Well-posed Shidoku puzzle and board}
+            \end{figure}
+            \begin{figure}
+                \centering
+            \begin{shidoku-block}
+                |0|1|2|3|.
+                |4|5|6|7|.
+                |8|9|10|11|.
+                |12|13|14|15|.
+            \end{shidoku-block}
+        \end{figure}
+            
+
+
+            dfd
+
+            Each of the methods presented for solving the puzzle uses values from different number systems ({\color{red}?}) to represent the $n$ variables given by the $n$ cells: the roots of unity method solves for solutions in $\mathbb{C}^n$, sum-product method in $\mathbb{Z}^n$, and boolean method in $\mathbb{Z}_2^n$.
+
+
+        
+        
+            \subsubsection{Roots of Unity Method}
+
+            We can reformulate the techniques used to solve graph colouring in the context of sudoku. Similar to the graph colouring solution in Section 3.1, we can represent pairs of cells that share a region rather than a whole region in itself. 
+            
+            To start, we replace the numbers $1,2,3$ and $4$ with the fourth roots of unity, $\pm 1$ and $\pm i$. Note that we can make any arbitrary choice for the root of unity associated with a number. Then, we can encode this information in each cell $x_i$ for $1\leq i\leq 16$ which takes on values from the fourth roots of unity in 16 polynomial equations of the form
+            \begin{equation} 
+                \label{eq:roi}
+                x_i^4-1=0.
+            \end{equation}
+            Next, if we fix $x_i$, for $x_j$ in the same region as $x_i$, we have another set of polynomial equations that encodes the puzzle. Since $x_i^4-x_j^4=0$, factoring gives $(x_i-x_j)(x_i+x_j)(x_i^2+x_j^2)=0$. Now, $x_j$ cannot be the same number as $x_i$ because they must be distinct roots of unity so $x_i-x_j\neq0$. Hence, we also have polynomials of the form
+            \begin{equation}
+                \label{eq:roi factor}
+                (x_i+x_j)(x_i^2+x_j^2)=0.
+            \end{equation}
+            The 56 polynomials of this form, along with the 16 from Equation \ref{eq:roi}, gives 72 polynomials total that we can generate our ideal $I_{RoI}$. We can then check whether the corresponding variety has solutions.
+
+            {\color{red} PUT EXAMPLE AND CODE}
+
+
+
+
+
+
+            \subsubsection{Sum-Product Method}
+
+            We can also have a representation of the board based on its regions. Every cell can take on a number from $\{1,2,3,4\}$. Fix $i$ for $1\leq i\leq 16$. For each $x_i$, we can encode this in the polynomial equation
+            \begin{equation}
+                \label{eq:sp null}
+                (x_i-1)(x_i-2)(x_i-3)(x_i-4)=0
+            \end{equation}
+            since the $x_i$ must be one of $\{1,2,3,4\}$. Now suppose we have four cells $w,x,y,z$ in the same region. It turns out that the only way to choose four numbers that sum to 10 and multiply to 24 from the set $\{1,2,3,4\}$ is to use each number once. (Note that : {\color{red} unique set of numbers for arbitrary $n\times n$.} For example, in a normal Sudoku, there is more than one choice of selecting numbers from $\{1,2,3,4,5,6,7,8,9\}$ that sum to $45$ and multiply to $9!=362880$, namely $\{1,2,3,4,5,6,7,8,9\}$ and $\{1,2,4,4,4,5,7,9,9\}$. We can instead assign each cell a number from $\{-2,-1,1,2,3,4,5,6,7\}$ since it is the smallest set in magnitude for which each of the nine elements are picked exactly once to make the sum and product). This means that for $w,x,y,z$ in each region, we have polynomial equations of the form
+            \begin{equation}
+                \label{eq:sp sum}
+                w+x+y+z-10=0, \text{ and} 
+            \end{equation}
+            \begin{equation}
+                \label{eq:sp prod}
+                \quad wxyz -24 = 0.
+            \end{equation}
+            We get 16 equations from Equation \ref{eq:sp null} and 24 equations from Equation \ref{eq:sp sum} and Equation \ref{eq:sp prod} since there are 12 regions, giving a total of 40 initial polynomials that we can use to generate the ideal $I_{SP}$. We also add constraints based on the cells that have been filled on any given Shidoku puzzle. For example, if we consider the Shidoku puzzle in Figure \ref{fig:shidoku} (left), we would also add $x_1-3=0$, $x_6-2=0$, $x_8-4=0$, $x_{10}-1=0$, and $x_{15}-4=0$.  
+            
+            {\color{red} give example + code}
+
+            \subsubsection{Boolean Variable Method}
+
+            Lastly, we explain the Boolean method. For each cell, we introduce four variables for each cell $x_{i,1}, x_{i,2}, x_{i,3}$, and $x_{i,4}$ for $1\leq i\leq 16$ (note that now {color{red} dfdfd}), where we set $x_{i,k}=1$ when cell $x_i$ takes the value $k$, and $x_{i,k}=0$ otherwise. Encoding the individual cells for the puzzle now takes 64 variables instead of 16 (it is suggested by \citet{bernasconi1997computing} and \citet{sato2008computation} that the cost of finding a Gr\"obner basis is greatly reduced). For each $i$, we then get polynomials of the form
+            \begin{equation} \label{eq:bool}
+                x_{i,k}(x_{i,k}-1)=0
+            \end{equation}
+
+            Because each $x_{i,j}$ can only take on values $0$ and $1$, we also get 16 polynomials of the form
+            \begin{equation} \label{eq:bool sum}
+                x_{i,1}+x_{i,2}+x_{i,3}+x_{i,4}-1=0
+            \end{equation}
+
+            Finally, we require any two cells $x_i$ and $x_j$ in the same region to have different values. Therefore, for each possible $k$, at least one of $x_{i,k}$ and $x_{j,k}$ must be 0. We have 56 polynomial equations of the form
+            \begin{equation} \label{eq:bool prod}
+                x_{i,1}x_{j,1} + x_{i,2}x_{j,2} + x_{i,3}x_{j,3} + x_{i,4}x_{j,4} = 0.
+            \end{equation}
+            We get a total of 136 initial polynomials that we can use to generate our ideal $I_{BV}$ and find a reduced Gr\"obner basis for.
+
+
+
+
+
+
+
+
+
+\end{document}
+        
