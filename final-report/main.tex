@@ -12,9 +12,53 @@
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    citecolor=blue
+    }
+
+\urlstyle{same}
 \usepackage{appendix}
 \usepackage{xcolor}
 \usepackage{sudoku}
+\usepackage{float}
+\usepackage[format=plain,
+            labelfont={bf,it},
+            textfont=it]{caption}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\tikzset{
+  prefix after node/.style={minimum size=8mm, scale = 0.9, draw=black,
+  auto=center, thick, prefix after command=\pgfextra{#1}},
+  /semifill/ang/.initial=45,
+  /semifill/upper/.initial=none,
+  /semifill/lower/.initial=none,
+  semifill/.style={
+    circle, draw,
+    prefix after node={
+      \pgfqkeys{/semifill}{#1}
+      \path let \p1 = (\tikzlastnode.north), \p2 = (\tikzlastnode.center),
+                \n1 = {\y1-\y2} in [radius=\n1]
+            (\tikzlastnode.\pgfkeysvalueof{/semifill/ang}) 
+            edge[
+              draw=none,
+              fill=\pgfkeysvalueof{/semifill/upper},
+              to path={
+                arc[start angle=\pgfkeysvalueof{/semifill/ang}, delta angle=180]
+                -- cycle}] ()
+            (\tikzlastnode.\pgfkeysvalueof{/semifill/ang}) 
+            edge[
+              draw=none,
+              fill=\pgfkeysvalueof{/semifill/lower},
+              to path={
+                arc[start angle=\pgfkeysvalueof{/semifill/ang}, delta angle=-180]
+                -- cycle}] ();}}}
+\usepackage{caption}
+\usepackage{subcaption}
 \renewcommand*\sudokuformat[1]{\sffamily#1}
 \setlength\sudokusize{5cm}
 
@@ -53,7 +97,7 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[L]{\slshape \MakeUppercase{Algebraic Varieties ASC Report}}
+\fancyhead[L]{\slshape \MakeUppercase{Graph Colouring and Sudoku}}
 \fancyhead[R]{\slshape Yangda Bei}
 \fancyfoot[CO,C]{\thepage}
 \fancyfoot[RO,R]{}
@@ -66,9 +110,14 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{example}{Example}[section]
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+%\newtheorem{example}{Example}[section]
+
+
 
 %\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 %\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -104,7 +153,8 @@
                  
             \vspace{1.5cm}
      
-            \textbf{Yangda Bei}
+            \textbf{Yangda Bei} \\
+            \textbf{u7281660}
                  
             A report presented for \\
             Advanced Studies Course SNCN3101
@@ -114,15 +164,16 @@
                  
             ANU Mathematical Sciences Institute\\
             The Australian National University\\
-            Country\\
-            Date
+            \today
                  
         \end{center}
     \end{titlepage}
 
     \begin{abstract}
         \centering
-        The Hilbert Basis Theorem states that ideals in a polynomial ring over a Noetherian ring {\color{red} noetherian???} has a finite generating set. This allows us to use a terminating algorithm to find a unique set of finite elements that generate a polynomial ideal, namely, a reduced Gr\"obner basis. Using Gr\"obner bases to describe a system is very powerful and has wide applications in the field of algebraic geometry. We present methods that use Gr\"obner bases to solve the graph colouring problem as well as Sudoku and its variants.
+        The Hilbert Basis Theorem states that ideals in a polynomial ring over a Noetherian ring {\color{red} noetherian???} has a finite generating set. 
+        
+        The Hilbert Basis Theorem states that polynomial rings over a Noetherian ring are also Noetherian, that is, ideals in polynomial rings have a finite generating set. This allows us to use a terminating algorithm to find a unique set of finite elements that generate a polynomial ideal, namely, a reduced Gr\"obner basis. Using Gr\"obner bases to describe a system is very powerful and has wide applications in the field of algebraic geometry. We present methods that use Gr\"obner bases to solve the graph colouring problem as well as Sudoku and its variants.
     \end{abstract}
     
 
@@ -148,16 +199,20 @@
     \section{Sudoku}
 
     \subfile{sections/sudoku}
-        
-        
 
-    \section{Origami}
+    \section{Future Directions}
+    
+    \subfile{sections/futuredirections}
 
-    \appendix
-    \subfile{sections/appendix}
+    \pagebreak
 
     \bibliographystyle{plainnat}
     \bibliography{bibliography}
+
+    \pagebreak
+
+    \appendix
+    \subfile{sections/appendix}
     
 
 \end{document}
