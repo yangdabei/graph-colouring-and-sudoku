@@ -16,7 +16,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=magenta,      
-    urlcolor=cyan,
+    urlcolor=blue,
     pdfpagemode=FullScreen,
     citecolor=blue
     }
@@ -112,6 +112,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -171,8 +172,6 @@
 
     \begin{abstract}
         \centering
-        The Hilbert Basis Theorem states that ideals in a polynomial ring over a Noetherian ring {\color{red} noetherian???} has a finite generating set. 
-        
         The Hilbert Basis Theorem states that polynomial rings over a Noetherian ring are also Noetherian, that is, ideals in polynomial rings have a finite generating set. This allows us to use a terminating algorithm to find a unique set of finite elements that generate a polynomial ideal, namely, a reduced Gr\"obner basis. Using Gr\"obner bases to describe a system is very powerful and has wide applications in the field of algebraic geometry. We present methods that use Gr\"obner bases to solve the graph colouring problem as well as Sudoku and its variants.
     \end{abstract}
     
@@ -204,15 +203,12 @@
     
     \subfile{sections/futuredirections}
 
+    \section*{Acknowledgements}
+    I would like to thank my supervisor Angus McAndrew for taking time out of his summer break to supervise a reading course in algebraic geometry. I would also like to thank Lekh Bhatia, Kieran Lelis, and Tushar Muralidharan for their support as well as being nerdy enough to complete a summer course in mathematics wih me.
     \pagebreak
 
     \bibliographystyle{plainnat}
     \bibliography{bibliography}
 
-    \pagebreak
-
-    \appendix
-    \subfile{sections/appendix}
-    
 
 \end{document}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,6 +19,54 @@ Anna Bernasconi, Bruno Codenotti, Valentino Crespi, and Giovanni Resta.
   counting.
 \newblock In \emph{WAE}, pages 209--218, 1997.
 
+\bibitem[Buchberger(2006)]{buchberger2006bruno}
+Bruno Buchberger.
+\newblock Bruno buchberger’s phd thesis 1965: An algorithm for finding the
+  basis elements of the residue class ring of a zero dimensional polynomial
+  ideal.
+\newblock \emph{Journal of symbolic computation}, 41\penalty0 (3-4):\penalty0
+  475--511, 2006.
+
+\bibitem[Chen et~al.(1994)Chen, Reed, Helleseth, and Truong]{333885}
+Xuemin Chen, I.S. Reed, T.~Helleseth, and T.K. Truong.
+\newblock Use of grobner bases to decode binary cyclic codes up to the true
+  minimum distance.
+\newblock \emph{IEEE Transactions on Information Theory}, 40\penalty0
+  (5):\penalty0 1654--1661, 1994.
+\newblock \doi{10.1109/18.333885}.
+
+\bibitem[Cox et~al.(2013)Cox, Little, and OShea]{cox2013ideals}
+David Cox, John Little, and Donal OShea.
+\newblock \emph{Ideals, varieties, and algorithms: an introduction to
+  computational algebraic geometry and commutative algebra}.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem[Dong et~al.(2005)Dong, Koh, and Teo]{dong2005chromatic}
+Fengming Dong, Khee-Meng Koh, and Kee~L Teo.
+\newblock \emph{Chromatic polynomials and chromaticity of graphs}.
+\newblock World Scientific, 2005.
+
+\bibitem[Faugere and Joux(2003)]{faugere2003algebraic}
+Jean-Charles Faugere and Antoine Joux.
+\newblock Algebraic cryptanalysis of hidden field equation (hfe) cryptosystems
+  using gr{\"o}bner bases.
+\newblock In \emph{Advances in Cryptology-CRYPTO 2003: 23rd Annual
+  International Cryptology Conference, Santa Barbara, California, USA, August
+  17-21, 2003. Proceedings 23}, pages 44--60. Springer, 2003.
+
+\bibitem[Francisco et~al.(2011)Francisco, H{\`a}, and
+  Van~Tuyl]{francisco2011colorings}
+Christopher~A Francisco, Huy~T{\`a}i H{\`a}, and Adam Van~Tuyl.
+\newblock Colorings of hypergraphs, perfect graphs, and associated primes of
+  powers of monomial ideals.
+\newblock \emph{Journal of Algebra}, 331\penalty0 (1):\penalty0 224--242, 2011.
+
+\bibitem[Gonthier et~al.(2008)]{gonthier2008formal}
+Georges Gonthier et~al.
+\newblock Formal proof--the four-color theorem.
+\newblock \emph{Notices of the AMS}, 55\penalty0 (11):\penalty0 1382--1393,
+  2008.
+
 \bibitem[Haythorpe(2016)]{haythorpe2016reducing}
 Michael Haythorpe.
 \newblock Reducing the generalised sudoku problem to the hamiltonian cycle
@@ -26,11 +74,22 @@ Michael Haythorpe.
 \newblock \emph{AKCE International Journal of Graphs and Combinatorics},
   13\penalty0 (3):\penalty0 272--282, 2016.
 
+\bibitem[Herzberg and Murty(2007)]{herzberg2007sudoku}
+Agnes~M Herzberg and M~Ram Murty.
+\newblock Sudoku squares and chromatic polynomials.
+\newblock \emph{Notices of the AMS}, 54\penalty0 (6):\penalty0 708--717, 2007.
+
 \bibitem[Ist et~al.(2006)Ist, Lynce, and Ouaknine]{ist2006sudoku}
 Ines~Lynce Ist, In{\^e}s Lynce, and Jo{\"e}l Ouaknine.
 \newblock Sudoku as a sat problem.
 \newblock In \emph{Proceedings of the International Symposium on Artificial
   Intelligence and Mathematics (AIMATH)}, pages 1--9, 2006.
+
+\bibitem[Montes(2002)]{montes2002new}
+Antonio Montes.
+\newblock A new algorithm for discussing gr{\"o}bner bases with parameters.
+\newblock \emph{Journal of Symbolic Computation}, 33\penalty0 (2):\penalty0
+  183--208, 2002.
 
 \bibitem[Sato et~al.(2008)Sato, Nagai, and Inoue]{sato2008computation}
 Yosuke Sato, Akira Nagai, and Shutaro Inoue.
